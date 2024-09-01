@@ -6,6 +6,8 @@ const ContactRouter = require("./routes/contact");
 const DbConnection = require("./config/db");
 const GetTouchRouter = require("./routes/gettouch");
 const TestimonialRouter = require("./routes/testimonial");
+const TechnologyRouter = require("./routes/technology");
+const ResumeRouter = require("./routes/resume");
 
 dotenv.config();
 
@@ -19,13 +21,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
+
 app.get("/", (req, res) => {
-  res.send("hello world");
+  res.send("Hello Voyage Infotech");
 });
 
 // Register routes
 app.use("/api", imageRouter);
 app.use("/api/contact", ContactRouter);
+app.use("/api/resume", ResumeRouter);
+app.use("/api/technology", TechnologyRouter);
 app.use("/api/gettouch", GetTouchRouter);
 app.use("/api/testimonial", TestimonialRouter);
 
