@@ -1,4 +1,4 @@
-const express = require("express");
+  const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const imageRouter = require("./routes/image");
@@ -8,6 +8,7 @@ const GetTouchRouter = require("./routes/gettouch");
 const TestimonialRouter = require("./routes/testimonial");
 const TechnologyRouter = require("./routes/technology");
 const ResumeRouter = require("./routes/resume");
+const UserRouter = require("./routes/auth");
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.get("/", (req, res) => {
 
 // Register routes
 app.use("/api", imageRouter);
+app.use("/api/user", UserRouter);
 app.use("/api/contact", ContactRouter);
 app.use("/api/resume", ResumeRouter);
 app.use("/api/technology", TechnologyRouter);
